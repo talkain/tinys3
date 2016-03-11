@@ -16,7 +16,7 @@ deployment:
     commands:
       - bash deploy/publish_pip.sh
   staging:
-    branch: master
+    branch: preparing_ci_env
     commands:
       - echo "Deploying staging"
       - bash deploy/staging.sh
