@@ -1,0 +1,22 @@
+machine:
+   python:
+     version: 2.7.10
+
+dependencies:
+  override:
+    - pip install -r requirements.txt
+
+test:
+  override:
+    - ./ci_tests.sh
+
+deployment:
+  production:
+    branch: stable
+    commands:
+      - bash deploy/publish_pip.sh
+  staging:
+    branch: master
+    commands:
+      - echo "Deploying staging"
+      - bash deploy/staging.sh
